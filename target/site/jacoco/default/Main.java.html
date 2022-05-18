@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HelloWorld</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">import org.w3c.dom.html.HTMLOptGroupElement;
+
+import java.util.Scanner;
+import java.util.concurrent.SynchronousQueue;
+
+
+<span class="nc" id="L7">public class Main {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L9">        Scanner scan = new Scanner(System.in);</span>
+<span class="nc" id="L10">        Scanner stringScanner = new Scanner(System.in);</span>
+<span class="nc" id="L11">        int wall, h, w, doorAmount = 0, socketAmount=0, windowAmount=0, paintNeeded, litrePerArea = 16900, customDoorSize = 0;</span>
+        String color;
+
+
+<span class="nc" id="L15">        System.out.println(&quot;They say the colour you are painting the wall indicates your personality , From the options below which colour are you going to paint the wall ? \n Black \n Green \n Red \n Blue \n Orange \n Other &quot;);</span>
+<span class="nc" id="L16">        color = stringScanner.nextLine();</span>
+<span class="nc bnc" id="L17" title="All 3 branches missed.">        switch (color) {</span>
+            case &quot;Red&quot;:
+<span class="nc" id="L19">                System.out.println(&quot;Good choice Bro &quot;);</span>
+<span class="nc" id="L20">                break;</span>
+            case &quot;Green&quot;:
+<span class="nc" id="L22">                System.out.println(&quot;Your painting a wall the same colour as vomit&quot;);</span>
+<span class="nc" id="L23">                break;</span>
+
+            default:
+<span class="nc" id="L26">                System.out.println(&quot;bad choice&quot;);</span>
+                break;
+        }
+<span class="nc" id="L29">        System.out.println(&quot;How many walls do you wish to paint&quot;);</span>
+<span class="nc" id="L30">        int amountOfWalls = scan.nextInt() ;</span>
+<span class="nc" id="L31">        int[] totalPaint = new int[(amountOfWalls+1)];</span>
+
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (int currentWall = 1 ; currentWall &lt;= amountOfWalls ; currentWall++) {</span>
+            boolean doorsPresent, socketsPresent, windowsPresent;
+<span class="nc" id="L35">            System.out.println(&quot;What is the width of wall Number &quot; + currentWall + &quot;in cm&quot;);</span>
+<span class="nc" id="L36">            w = scan.nextInt();</span>
+<span class="nc" id="L37">            System.out.println(&quot;What is the height of wall Number &quot; + currentWall + &quot;in cm&quot;);</span>
+<span class="nc" id="L38">            h = scan.nextInt();</span>
+<span class="nc" id="L39">            wall = w * h;</span>
+<span class="nc" id="L40">            int avgWindow = 5575, avgDoor = 15096, avgSocket = 126;</span>
+<span class="nc" id="L41">            System.out.println(&quot;Are there any doors in the Wall (Please Answer Yes or No)&quot;);</span>
+<span class="nc" id="L42">            String answer = stringScanner.nextLine();</span>
+<span class="nc" id="L43">            System.out.println(answer);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (answer.equals(&quot;Yes&quot;)) {</span>
+<span class="nc" id="L45">                System.out.println(&quot;How many doors are in the wall&quot;);</span>
+<span class="nc" id="L46">                doorAmount = stringScanner.nextInt();</span>
+<span class="nc" id="L47">                System.out.print(&quot;Do you know the size of the doors? (Please answer Yes or No)&quot;);</span>
+<span class="nc" id="L48">                answer = stringScanner.next();</span>
+<span class="nc" id="L49">                System.out.println(answer);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">                if (answer.equals(&quot;Yes&quot;)) {</span>
+<span class="nc" id="L51">                    System.out.println(&quot;Are the doors the same height?&quot;);</span>
+<span class="nc" id="L52">                    answer = stringScanner.next();</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">                    if (answer.equals(&quot;No&quot;)) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">                        for (int i = 0; i &lt; doorAmount; i++) {</span>
+<span class="nc" id="L55">                            System.out.println(&quot;What is the height of door number :&quot; + i);</span>
+<span class="nc" id="L56">                            int customDoorHeight = scan.nextInt();</span>
+<span class="nc" id="L57">                            System.out.println(&quot;What is the width of door number :&quot; + i);</span>
+<span class="nc" id="L58">                            int customDoorWidth = scan.nextInt();</span>
+<span class="nc" id="L59">                            customDoorSize += customDoorWidth * customDoorWidth;</span>
+                        }
+<span class="nc" id="L61">                        doorAmount = customDoorSize;</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                    } else if (answer.equals(&quot;Yes&quot;)) {</span>
+<span class="nc" id="L63">                        System.out.println(&quot;What is the width of the doors ?&quot;);</span>
+<span class="nc" id="L64">                        int doorWidth = scan.nextInt();</span>
+<span class="nc" id="L65">                        System.out.println(&quot;What is the height of the door ?&quot;);</span>
+<span class="nc" id="L66">                        int doorHeight = scan.nextInt();</span>
+<span class="nc" id="L67">                        doorAmount = doorAmount * (doorWidth * doorHeight);</span>
+<span class="nc" id="L68">                    } else {</span>
+<span class="nc" id="L69">                        doorAmount = doorAmount * avgDoor;</span>
+                    }
+                }
+<span class="nc bnc" id="L72" title="All 2 branches missed.">            } else if (answer.equals(&quot;No&quot;)) {</span>
+<span class="nc" id="L73">                System.out.println(&quot;How many Windows&quot;);</span>
+<span class="nc" id="L74">                windowAmount = scan.nextInt() * avgWindow;</span>
+<span class="nc" id="L75">                System.out.println(&quot;How many Sockets&quot;);</span>
+<span class="nc" id="L76">                socketAmount = scan.nextInt() * avgSocket;</span>
+            }
+
+<span class="nc" id="L79">            wall -= doorAmount + windowAmount + socketAmount;</span>
+<span class="nc" id="L80">            paintNeeded = wall / litrePerArea;</span>
+<span class="nc" id="L81">            totalPaint[currentWall] = paintNeeded;</span>
+        }
+
+
+<span class="nc" id="L85">                System.out.println(&quot;How much is a Liter of paint&quot;);</span>
+<span class="nc" id="L86">                double paintCost = scan.nextDouble();</span>
+               // paintCost = paintCost ;
+<span class="nc" id="L88">            int paintCostForRoom = 0;</span>
+<span class="nc" id="L89">            int area = 0 ;</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">            for(int i = 0 ; i&lt;totalPaint.length ; i++){</span>
+
+<span class="nc" id="L92">                area += totalPaint[i];</span>
+<span class="nc" id="L93">                paintCostForRoom +=totalPaint[i]*paintCost ;</span>
+            }
+
+<span class="nc" id="L96">            int completePaintNeeded = area/ litrePerArea ;</span>
+
+<span class="nc" id="L98">        System.out.println(&quot;The area of the room :&quot; + area + &quot;\n The amount of paint  \n The amount of paint needed is : &quot; + completePaintNeeded + &quot;\n The total cost would be : &quot; + paintCostForRoom);</span>
+                //System.out.println(&quot; The wall size is : &quot; + wall + &quot; cm \n The amount of paint needed is :  litres \n The cost of the paint will be : &quot; + paintCost + &quot; pounds&quot;);
+
+
+
+/*
+
+
+
+        /*
+
+
+
+        System.out.println(&quot;Hello Word&quot;);
+
+        //Experiments whilst waiting
+        Calc calculator = new Calc() ;
+
+        Person james = new Person(&quot;James&quot;, 21) ;
+
+        james.depositMoney(200);
+        james.transaction((float) 49.99,&quot;Playstation Game&quot;);
+        james.transaction( 7,&quot;Food Shoppping&quot;);
+        System.out.println(james.transactionHistory());
+
+*/
+
+<span class="nc" id="L125">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
