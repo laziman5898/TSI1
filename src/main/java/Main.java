@@ -20,6 +20,11 @@ public class Main {
                 break;
             case "Green":
                 System.out.println("Your painting a wall the same colour as vomit");
+                break;
+
+            default:
+                System.out.println("bad choice");
+                break;
         }
         System.out.println("How many walls do you wish to paint");
         int amountOfWalls = scan.nextInt() ;
@@ -83,6 +88,7 @@ public class Main {
             int paintCostForRoom = 0;
             int area = 0 ;
             for(int i = 0 ; i<totalPaint.length ; i++){
+
                 area += totalPaint[i];
                 paintCostForRoom +=totalPaint[i]*paintCost ;
             }
@@ -94,7 +100,7 @@ public class Main {
 
 
 
-
+/*
 
 
 
